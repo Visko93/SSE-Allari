@@ -5,22 +5,6 @@ export const updateClock = () => {
   const time = new Date();
   const { hours, minutes, seconds } = formatTime(time);
 
-  const currentHoursDecimal = clock?.querySelector(
-    '#hours .clock__time-decimal'
-  )?.textContent;
-  const currentMinutesDecimal = clock?.querySelector(
-    '#minutes .clock__time-decimal'
-  )?.textContent;
-  const currentSecondsDecimal = clock?.querySelector(
-    '#seconds .clock__time-decimal'
-  )?.textContent;
-
-  const currentHoursUnit = clock?.querySelector(
-    '#hours .clock__time-unit'
-  )?.textContent;
-  const currentMinutesUnit = clock?.querySelector(
-    '#minutes .clock__time-unit'
-  )?.textContent;
   const currentSecondsUnit = clock?.querySelector(
     '#seconds .clock__time-unit'
   )?.textContent;

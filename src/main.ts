@@ -1,6 +1,7 @@
 import './style.css';
 import { setupCounter } from './counter.ts';
 import { clock, updateClock } from './components/clock/index.ts';
+import { mouseTracker } from './components/mouseTracker/index.ts';
 
 const header = `
   <header>
@@ -16,29 +17,47 @@ const navigation = `
   </nav>
 `;
 
-const contentLeft = `
+const contentLeft = () => `
   <aside>
-    <div>
-    asd
+    <div class="mouseTracker">
+      <div class="mouseTracker__item">
+        <h4 class="mouseTracker__title">Mouse X Position(px)</h4>
+        <div class="mouseTracker__item-x" id="mouseTracker__x">000</div>
+      </div>
+      <div class="mouseTracker__item">
+        <h4 class="mouseTracker__title">Mouse Y Position(px)</h4>
+        <div class="mouseTracker__item-y" id="mouseTracker__y">000</div>
+      </div>
     </div>
   </aside>
 `;
 
-const contentRight = `
+const contentRight = (images = ['/first.jpeg']) => `
   <aside>
-    <div>
-    asd
+    <div class="slider">
+      <div class="slider__item">
+        <img class="slider__image" src="${images[0]}" alt="First image of the slider"/>
+      </div>
+      <div class="slider__bullet">
+        <span class="slider__bullet-item">º</span>
+        <span class="slider__bullet-item">º</span>
+        <span class="slider__bullet-item">º</span>
+      </div>
+    </div>
+    <div class="slider__controls">
+      <button class="slider__button slider__button--prev">Prev</button>
+      <button class="slider__button slider__button--next">Next</button>
     </div>
   </aside>
 `;
 
 const main = `
   <main>
-  ${contentLeft}
+  ${contentLeft()}
     <div>
     <button class="list__button">Show List</button>
     </div>
-  ${contentRight}
+  ${contentRight()}
   </main>
 `;
 
@@ -58,5 +77,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 `;
 
 updateClock();
+mouseTracker();
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);

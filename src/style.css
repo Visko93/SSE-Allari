@@ -105,9 +105,8 @@ main {
   justify-content: space-between;
   align-items: center;
 
-  flex: 1;
-  padding: 0 1em 0 1em;
   height: 50%;
+  width: 100%;
 }
 
 /* CONTENT LEFT */
@@ -119,13 +118,47 @@ main {
 }
 
 /* CONTENT RIGHT */
+aside {
+  height: 100%;
+  width: 25%;
+}
 .content-right {
+}
+
+.mouseTracker {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  background-color: rgb(34, 34, 136);
+}
+
+.mouseTracker__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mouseTracker__title {
+  font-size: 0.5rem;
+  font-weight: 300;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.mouseTracker__item-x,
+.mouseTracker__item-y {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #c0c0c0;
-}
 
+  border: 1px solid white;
+  padding: 1em 2em;
+
+  width: 100%;
+}
 /* FOOTER */
 footer {
   display: flex;
