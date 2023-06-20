@@ -1,10 +1,13 @@
 import './style.css';
-import viteLogo from '/vite.svg';
 import { setupCounter } from './counter.ts';
 
 const header = `
   <header>
-    <a href="https://vitejs.dev" target="_blank"/>
+    <div class="clock">
+      <div class="clock__time">10</div>
+      <div class="clock__time">14</div>
+      <div class="clock__time">09</div>
+    </div>
   </header>
 `;
 
@@ -22,12 +25,14 @@ const aside = `
     </div>
   </aside>
 `;
+
 const main = `
   <main>
     <div>
     </div>
   </main>
 `;
+
 const footer = `
   <footer>
   </footer>
