@@ -1,13 +1,10 @@
 import './style.css';
 import { setupCounter } from './counter.ts';
+import { clock, updateClock } from './components/clock/index.ts';
 
 const header = `
   <header>
-    <div class="clock">
-      <div class="clock__time">10</div>
-      <div class="clock__time">14</div>
-      <div class="clock__time">09</div>
-    </div>
+    ${clock}
   </header>
 `;
 
@@ -19,31 +16,47 @@ const navigation = `
   </nav>
 `;
 
-const aside = `
+const contentLeft = `
   <aside>
     <div>
+    asd
+    </div>
+  </aside>
+`;
+
+const contentRight = `
+  <aside>
+    <div>
+    asd
     </div>
   </aside>
 `;
 
 const main = `
   <main>
+  ${contentLeft}
     <div>
+    <button class="list__button">Show List</button>
     </div>
+  ${contentRight}
   </main>
 `;
 
 const footer = `
   <footer>
+    <a href="https://allari.com/" rel="noopener" target="_blank" >
+      <img src="/logo.png" alt="Logo for the company Allari, the company name in black"/>
+    </a>
   </footer>
 `;
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   ${header}
   ${navigation}
-  ${aside}
   ${main}
   ${footer}
 `;
+
+updateClock();
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
