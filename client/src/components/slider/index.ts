@@ -136,12 +136,10 @@ export const slider = (images: string[]) => `
   <div class="slider__bullet">
   ${
     images?.length > 0 &&
-    `  <img
-    src="${images[0]}"
-    data-index="0"
-    class="slider__image"
-    active="true"
-    />`
+    ` <div class="slider__bullet-item" data-index="0">●</div>
+      ${Array.from({ length: images.length - 1 }, (_, index) => {
+        return `<div class="slider__bullet-item" data-index="${index + 1}">○</div>`;
+      }).join('')}`
   }
   </div>
 </div>

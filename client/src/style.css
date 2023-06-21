@@ -188,6 +188,15 @@ aside {
 .slider__button#next {
   margin-right: 1em;
 }
+
+/* SLIDER BULLETS */
+.slider__bullet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 1em;
+}
 /* MOUSE TRACKER */
 .mouseTracker {
   width: 100%;
@@ -236,7 +245,7 @@ footer {
 
 main {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
 
   padding: 1em ;
@@ -255,14 +264,14 @@ main {
   box-shadow: 0 2px 8px -2px var(--darker-primary);
   outline: none;
   -webkit-tap-highlight-color: transparent;
-  transform: translateY(0);
 
-  align-self: flex-start;
 }
 
 .main__button.ripple {
   background-position: center;
   transition: background 0.8s;
+  align-self: center;
+
 }
 
 .main__button.ripple:focus-within {
@@ -277,5 +286,33 @@ main {
   background-position: center;
   background-size: 100%;
   transition: background 0s, transform 0.2s;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  justify-items: center;
+
+  height: 100%;
+  width: 100%;
+  margin-top: 1em;
+  padding: 0;
+  list-style: none;
+}
+.list__container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+.list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1em 0;
 }
 /* Reference: https://codepen.io/avstorm/pen/oNvEoev */

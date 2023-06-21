@@ -46,10 +46,10 @@ const contentRight = (
 const main = `
   <main>
   ${contentLeft()}
-    <div>
-    <button class="main__button ripple">Show List</button>
-    <ul class="list">
-    </ul>
+    <div class="list__container">
+      <button class="main__button ripple">Show List</button>
+      <ul class="list">
+      </ul>
     </div>
   ${contentRight()}
   </main>

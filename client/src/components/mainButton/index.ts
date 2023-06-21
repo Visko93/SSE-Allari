@@ -2,18 +2,29 @@ const URL = 'http://localhost:3000'
 
 export function handleMainButton() {
   const mainButton = document.querySelector('.main__button')
-  console.log('aqui', mainButton)
-  
+
   if (mainButton) {
     mainButton.addEventListener('click', async () => {
-      console.log('aqui')
       try {
-        const list = fetch(`${URL}/list`)
-        const response = await list
+        const res = fetch(`${URL}/list`)
+        const response = await res
 
-        console.log(response)
-      } catch (error) {
-        
+        const data = await response.json()
+
+        const list = data.map((item: any) => {
+          const listElement = document.createElement('li')
+          listElement.setAttribute('class', 'list__item')
+          listElement.textContent = item.description
+          return listElement
+        })
+
+        const listElement = document.querySelector('.list')
+        listElement!.textContent = ''
+        list.forEach((item: any) => {
+          listElement?.appendChild(item)
+        })
+      } catch (err) {
+        throw new Error(err as string)
       }
     })
   }
