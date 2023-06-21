@@ -1,4 +1,7 @@
 :root {
+  --primary: #2196f3;
+  --darker-primary: rgba(60, 83, 199, 0.92);
+  --lighter-primary: rgba(60, 83, 199, 0.8);
 }
 
 * {
@@ -231,12 +234,17 @@ footer {
 }
 
 
-/* RIPPLE BUTTON */
-.ripple:root {
-  --primary: #2196f3;
-} 
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 
-.btn {
+  padding: 1em ;
+
+}
+
+/* RIPPLE BUTTON */
+.main__button {
   border: none;
   border-radius: 5px;
   padding: 12px 24px;
@@ -244,25 +252,30 @@ footer {
   cursor: pointer;
   color: white;
   background-color: var(--primary);
-  box-shadow: 0 2px 8px -2px rgba(var(--primary), .5);
+  box-shadow: 0 2px 8px -2px var(--darker-primary);
   outline: none;
   -webkit-tap-highlight-color: transparent;
   transform: translateY(0);
+
+  align-self: flex-start;
 }
 
-.btn.ripple {
+.main__button.ripple {
   background-position: center;
-  transition: background .8s;
+  transition: background 0.8s;
 }
 
-.btn.ripple:hover {
-  background: radial-gradient(circle, transparent 1%, darken(var(--primary), 8%) 1%) 50% / 16000%;
+.main__button.ripple:focus-within {
+  background-image: radial-gradient(circle, transparent 1%, var(--darker-primary) 1%);
+  background-position: center;
+  background-size: 16000%;
 }
 
-.btn.ripple:active {
-  background-color: lighten(var(--primary), 20%);
+.main__button.ripple:active {
+  background-image: radial-gradient(circle, transparent 1%, var(--lighter-primary) 1%);
+  background-color: var(--lighter-primary);
+  background-position: center;
   background-size: 100%;
-  transition: background 0s, transform .2s;
-  transform: translateY(1px);
+  transition: background 0s, transform 0.2s;
 }
 /* Reference: https://codepen.io/avstorm/pen/oNvEoev */

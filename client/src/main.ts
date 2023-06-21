@@ -2,6 +2,7 @@ import './style.css';
 import { clock, updateClock } from './components/clock/index.ts';
 import { mouseTracker } from './components/mouseTracker/index.ts';
 import { handleSlider, slider } from './components/slider/index.ts';
+import { handleMainButton } from './components/mainButton/index.ts';
 
 const header = `
   <header>
@@ -46,7 +47,9 @@ const main = `
   <main>
   ${contentLeft()}
     <div>
-    <button class="list__button">Show List</button>
+    <button class="main__button ripple">Show List</button>
+    <ul class="list">
+    </ul>
     </div>
   ${contentRight()}
   </main>
@@ -70,3 +73,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 updateClock();
 mouseTracker();
 handleSlider(['/first.jpeg', '/second.jpg', '/third.jpg']);
+handleMainButton();
