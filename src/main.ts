@@ -1,7 +1,7 @@
 import './style.css';
-import { setupCounter } from './counter.ts';
 import { clock, updateClock } from './components/clock/index.ts';
 import { mouseTracker } from './components/mouseTracker/index.ts';
+import { handleSlider, slider } from './components/slider/index.ts';
 
 const header = `
   <header>
@@ -11,9 +11,11 @@ const header = `
 
 const navigation = `
   <nav class="navigation">
-    <ul class="navigation__list">
-      <li class="navigation__item"><a class="navigation__link" href="/">Vinicius Skonicezny</a></li>
-    </ul>
+    <div class="navigation__item">
+      <a class="navigation__link" href="/">
+        Vinicius Skonicezny
+      </a>
+    </div>
   </nav>
 `;
 
@@ -32,22 +34,11 @@ const contentLeft = () => `
   </aside>
 `;
 
-const contentRight = (images = ['/first.jpeg']) => `
+const contentRight = (
+  images = ['/first.jpeg', '/first.jpeg', '/first.jpeg']
+) => `
   <aside>
-    <div class="slider">
-      <div class="slider__item">
-        <img class="slider__image" src="${images[0]}" alt="First image of the slider"/>
-      </div>
-      <div class="slider__bullet">
-        <span class="slider__bullet-item">º</span>
-        <span class="slider__bullet-item">º</span>
-        <span class="slider__bullet-item">º</span>
-      </div>
-    </div>
-    <div class="slider__controls">
-      <button class="slider__button slider__button--prev">Prev</button>
-      <button class="slider__button slider__button--next">Next</button>
-    </div>
+    ${slider(images)}
   </aside>
 `;
 
@@ -78,5 +69,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 updateClock();
 mouseTracker();
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
+handleSlider(['/first.jpeg', '/first.jpeg', '/first.jpeg']);

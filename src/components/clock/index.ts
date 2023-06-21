@@ -5,10 +5,6 @@ export const updateClock = () => {
   const time = new Date();
   const { hours, minutes, seconds } = formatTime(time);
 
-  const currentSecondsUnit = clock?.querySelector(
-    '#seconds .clock__time-unit'
-  )?.textContent;
-
   clock!.innerHTML = `
     <div class="clock" id="clock">
       <div class="clock__time" id="hours">
@@ -25,26 +21,7 @@ export const updateClock = () => {
       </div>
     </div>
   `;
-  // if (currentSecondsUnit !== seconds[1]) {
-  //   const secondsEl = document.getElementById('seconds');
-  //   const prevElement = document.querySelector('#seconds .clock__time-unit');
 
-  //   const nextElement = document.createElement('span');
-  //   nextElement.classList.add('clock__time-unit');
-  //   nextElement.textContent = seconds[1];
-  //   nextElement.style.position = 'absolute';
-
-  //   prevElement?.appendChild(prevElement);
-
-  //   prevElement?.classList.add('moveOut');
-  //   nextElement?.classList.add('moveIn');
-
-  //   console.debug(currentSecondsUnit, seconds[1]);
-  //   setTimeout(() => {
-  //     nextElement?.classList.remove('moveOut');
-  //     prevElement?.classList.remove('moveIn');
-  //   }, 800);
-  // }
   const id = setTimeout(updateClock, 1000);
 
   return () => clearTimeout(id);
